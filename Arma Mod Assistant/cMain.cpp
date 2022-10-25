@@ -1,47 +1,88 @@
-#include "cMain.h"
-#include <wx/msgdlg.h>
+﻿#include "cGui.h"
+#include "cFileManager.h"
+#include <wx/generic/textdlgg.h>
 
-cMain::cMain( wxWindow* parent )
-:
-cMainFrame( parent )
+void cMainFrame::newMod( wxCommandEvent& event )
 {
-
-}
-
-void cMain::newMod( wxCommandEvent& event )
-{
-	wxMessageBox(wxT("CALLED"));
-	cNewModDialog* m_newModDialog = new cNewModDialog(nullptr);
-	m_newModDialog->Show();
+	cNewModDialog* newModDialog = new cNewModDialog(this);
+	newModDialog->Show(true);
 	event.Skip();
 }
 
-void cMain::newSubmod( wxCommandEvent& event )
+void cMainFrame::newSubmod( wxCommandEvent& event )
 {
-// TODO: Implement newSubmod
+	wxTextEntryDialog submodDialog(NULL, "Enter name for the new Submod", "Submod Name", "", wxOK | wxCANCEL);
+	if (submodDialog.ShowModal() == wxID_OK) {
+		if (submodDialog.GetValue().IsEmpty() || submodDialog.GetValue().Contains("\\") || submodDialog.GetValue().Contains("/")) {
+			wxMessageBox("Submod Cannot Contain Invalid Character such as \"\\\" or \"/\"", "Name Error");
+		}
+		cFileManager::createSubmod(submodDialog.GetValue().ToStdString());
+		cGuiControl::fillFolderTree();
+	}
+	event.Skip();
 }
 
-void cMain::newCategory( wxCommandEvent& event )
+void cMainFrame::newCategory( wxCommandEvent& event )
 {
-// TODO: Implement newCategory
+	cNewCategoryDialog* newCategoryDialog = new cNewCategoryDialog(this);
+	newCategoryDialog->Show(true);
+	event.Skip();
 }
 
-void cMain::newFile( wxCommandEvent& event )
+void cMainFrame::newSqfFile( wxCommandEvent& event )
 {
-// TODO: Implement newFile
+	cNewScriptFileDialog* newScriptFileDialog = new cNewScriptFileDialog(this);
+	newScriptFileDialog->Show(true);
+	event.Skip();
 }
 
-void cMain::openProject( wxCommandEvent& event )
+void cMainFrame::newHeaderFile(wxCommandEvent& event)
 {
-// TODO: Implement openProject
+	cNewHeaderDialog* newHeaderDialog = new cNewHeaderDialog(this);
+	newHeaderDialog->Show(true);
+	event.Skip();
 }
 
-void cMain::openOptions( wxCommandEvent& event )
+void cMainFrame::newCfgFile(wxCommandEvent& event)
 {
-// TODO: Implement openOptions
+
 }
 
-void cMain::Close( wxCommandEvent& event )
+void cMainFrame::openProject( wxCommandEvent& event )
 {
-// TODO: Implement Close
+	WCHAR* path = nullptr;
+	if (SUCCEEDED(cFileManager::projectFileOpen(path))) {
+		cFileManager::openConfig(path);
+	}
+	event.Skip();
+}
+
+void cMainFrame::openFolder(wxCommandEvent& event)
+{
+	WCHAR* path;
+	if (SUCCEEDED(cFileManager::basicFolderOpen(path))) {
+		cFileManager::openProjectFolder(path);
+	}
+	event.Skip();
+}
+
+void cMainFrame::saveProject(wxCommandEvent& event)
+{
+
+}
+
+void cMainFrame::saveProjectAs(wxCommandEvent& event)
+{
+
+}
+
+void cMainFrame::openOptions( wxCommandEvent& event )
+{
+
+}
+
+void cMainFrame::CloseWindow( wxCommandEvent& event )
+{
+	Destroy();
+	event.Skip();
 }

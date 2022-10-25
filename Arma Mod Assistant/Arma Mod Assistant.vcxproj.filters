@@ -24,22 +24,19 @@
     <ClInclude Include="cSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cNewMod.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cCommon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cMain.h">
+    <ClInclude Include="cFileManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cNewCategory.h">
+    <ClInclude Include="CDialogEventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cNewHeader.h">
+    <ClInclude Include="cGuiControl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cNewScriptFile.h">
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,23 +50,75 @@
     <ClCompile Include="cSettings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cNewMod.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cCommon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cNewCategory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="cNewHeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cNewMod.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cNewScriptFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cNewSubmod.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDialogEventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cGuiControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Arma Mod Assistant.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="a3p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ama.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cfg.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cpp.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="folder.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="hpp.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="p3d.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="paa.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="png.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sqf.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="unknown.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
